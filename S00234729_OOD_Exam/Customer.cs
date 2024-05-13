@@ -13,6 +13,9 @@ namespace S00234729_OOD_Exam
         public int CustomerId { get; set; }
         public string Name { get; set; }
         
-        public string ContactNumber { get; set; } 
+        public string ContactNumber { get; set; }
+
+        //part of one to many (to many)
+        public virtual ICollection<Booking> Bookings { get; set; }
     }
 }
