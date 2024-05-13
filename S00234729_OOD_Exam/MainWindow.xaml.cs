@@ -32,10 +32,7 @@ namespace S00234729_OOD_Exam
             using (var context = new RestarauntData("OODExam_JakeSmithDevery"))
             {
                 // Retrieve Bookings from the database
-                var Bookings = context.Customers.ToList();
-
-                // Bind Bookings to the ListBox
-                lbx_BookingDetails.ItemsSource = Bookings;
+                var customers = context.Customers.ToList();
             }
         }
     }
