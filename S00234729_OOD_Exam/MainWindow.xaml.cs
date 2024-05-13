@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Entity;
 
 namespace S00234729_OOD_Exam
 {
@@ -23,6 +24,19 @@ namespace S00234729_OOD_Exam
         public MainWindow()
         {
             InitializeComponent();
+            LoadCustomers();
+        }
+
+        private void LoadCustomers()
+        {
+            using (var context = new RestarauntData("OODExam_JakeSmithDevery"))
+            {
+                // Retrieve Bookings from the database
+                var Bookings = context.Customers.ToList();
+
+                // Bind Bookings to the ListBox
+                lbx_BookingDetails.ItemsSource = Bookings;
+            }
         }
     }
 }
